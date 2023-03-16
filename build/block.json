@@ -3,14 +3,26 @@
   "apiVersion": 2,
   "name": "acf/rental",
   "version": "0.1.0",
-  "title": "ACF",
+  "title": "BFL Rental",
   "category": "acf-blocks",
-  "textdomain": "rental",
-  "editorScript": "file:./index.js",
-  "editorStyle": "file:./index.css",
-  "style": "file:./index.css",
+  "icon": "smiley",
+  "description": "A rental block.",
+  "supports": {
+    "color": {
+      "text": true,
+      "background": false
+    },
+    "mode": false
+  },
+  "keywords": [
+    "rental",
+    "list",
+    "cost"
+  ],
+  "script": "file:./rental.js",
+  "style": "file:./rental.css",
   "acf": {
-    "mode": "preview",
-    "renderTemplate": "render.php"
+    "mode": "auto",
+    "renderTemplate": "rental.php"
   }
 }

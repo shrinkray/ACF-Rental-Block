@@ -1,0 +1,198 @@
+[
+    {
+        "key": "group_64121077a5caf",
+        "title": "Rental Block",
+        "fields": [
+            {
+                "key": "field_64121077f7663",
+                "label": "Rental item",
+                "name": "rental_item",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "pagination": 0,
+                "min": 0,
+                "max": 0,
+                "collapsed": "field_641210a6f7664",
+                "button_label": "+ Add a Rental",
+                "rows_per_page": 20,
+                "sub_fields": [
+                    {
+                        "key": "field_641210a6f7664",
+                        "label": "Rental type",
+                        "name": "rental_type",
+                        "aria-label": "",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "Private Office": "Private Office",
+                            "Studio Cubical": "Studio Cubical",
+                            "Standing Desk": "Standing Desk",
+                            "Dedicated Desk": "Dedicated Desk",
+                            "Partitioned Storage": "Partitioned Storage",
+                            "Drawer Storage": "Drawer Storage"
+                        },
+                        "default_value": false,
+                        "return_format": "value",
+                        "multiple": 0,
+                        "allow_null": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "placeholder": "",
+                        "parent_repeater": "field_64121077f7663"
+                    },
+                    {
+                        "key": "field_6412123df7665",
+                        "label": "Rental name",
+                        "name": "",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_64121077f7663"
+                    },
+                    {
+                        "key": "field_6412126d857e3",
+                        "label": "Rental detail",
+                        "name": "rental_detail",
+                        "aria-label": "",
+                        "type": "repeater",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "layout": "table",
+                        "pagination": 0,
+                        "min": 0,
+                        "max": 0,
+                        "collapsed": "",
+                        "button_label": "Add Row",
+                        "rows_per_page": 20,
+                        "sub_fields": [
+                            {
+                                "key": "field_64121385857e4",
+                                "label": "Detail item",
+                                "name": "detail_item",
+                                "aria-label": "",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "maxlength": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "parent_repeater": "field_6412126d857e3"
+                            },
+                            {
+                                "key": "field_641213bc857e5",
+                                "label": "Detail content",
+                                "name": "detail_content",
+                                "aria-label": "",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "visual",
+                                "toolbar": "basic",
+                                "media_upload": 0,
+                                "delay": 0,
+                                "parent_repeater": "field_6412126d857e3"
+                            }
+                        ],
+                        "parent_repeater": "field_64121077f7663"
+                    },
+                    {
+                        "key": "field_641215ba42d24",
+                        "label": "Rental gallery",
+                        "name": "rental_gallery",
+                        "aria-label": "",
+                        "type": "gallery",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "id",
+                        "library": "all",
+                        "min": 1,
+                        "max": 3,
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": "",
+                        "insert": "append",
+                        "preview_size": "medium",
+                        "parent_repeater": "field_64121077f7663"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/rental"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    }
+]

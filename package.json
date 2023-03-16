@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"author": "Greg Miller",
 	"license": "GPL-2.0-or-later",
-	"main": "build/index.js",
+	"main": "build/rental.js",
 	"scripts": {
 		"build": "wp-scripts build --webpack-src-dir=blocks --webpack-copy-php",
 		"format": "wp-scripts format",

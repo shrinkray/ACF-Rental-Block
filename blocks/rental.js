@@ -1,4 +1,4 @@
-import './styles.scss';
+import './rental.scss';
 
 // Initialize.
 document.addEventListener( 'DOMContentLoaded', () => {
