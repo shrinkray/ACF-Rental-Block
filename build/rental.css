@@ -48,7 +48,7 @@
 .rental-card > .rental-desc {
   color: red;
 }
-.rental-card > .rental-deets {
+.rental-card > .rental-details {
   list-style-type: circle;
 }
 
