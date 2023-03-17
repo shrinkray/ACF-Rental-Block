@@ -13,7 +13,7 @@
 
 $wrapper_attributes = get_block_wrapper_attributes(
     [
-        'class' => 'accordion'
+        'class' => 'rental'
     ]
 );
 ?>
@@ -22,44 +22,63 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 <div <?= $wrapper_attributes ?>>
 
-        <?php if ( have_rows( 'rental_item' ) ) : ?>
-            <?php while ( have_rows( 'rental_item' ) ) : the_row();
-                $type = get_sub_field( 'rental_type' );
-                ?>
+    <?php // Flexible Content
+    if ( have_rows( 'order_rentals' ) ): ?>
+        <?php while ( have_rows( 'order_rentals' ) ) : the_row(); ?>
+            <?php if ( get_row_layout() == 'spaces' ) : ?>
 
-                <div class="rental">
-
-
-                <?php if ( have_rows( 'rental_detail' ) ) : ?>
-                    <?php while ( have_rows( 'rental_detail' ) ) : the_row();
-                        $heading = get_sub_field( 'detail_item' );
-                        $content = get_sub_field( 'detail_content' );
-
+                <?php  // Repeater
+                    if ( have_rows( 'rental_item' ) ) : ?>
+                    <?php while ( have_rows( 'rental_item' ) ) : the_row();
+                        $type  = get_sub_field( 'rental_type' );
+                        $name  = get_sub_field( 'rental_name' );
+                        $image = get_sub_field( 'rental_image' );
+                        $size  = get_sub_field( 'full' ); // TODO: set this up
                         ?>
-                        <h2><?= esc_html( $type ) ?></h2>
-                        <h3><?= esc_html( $heading ) ?></h3>
-                        <p><?= esc_html($content) ?></p>
+
+                    <div class="rental-card">
+
+                        <?php if ( $image ) : ?>
+                        <div class="card-image">
+                            <?php echo wp_get_attachment_image( $image, $size ); ?>
+                        </div>
+                        <?php endif; ?>
+
+                        <h3 class="rental-name"><?= esc_html( $name ) ?></h3>
+                        <p class="rental-desc"><?= esc_html($type) ?></p>
+                        <ul class="rental-deets">
+
+                            <?php // Repeater
+                                if ( have_rows( 'rental_detail' ) ) : ?>
+                            <li>
+                                <?php while ( have_rows( 'rental_detail' ) ) : the_row();
+                                    $item = get_sub_field( 'detail_item' );
+
+                                    ?>
+
+                                <?= esc_html($item) ?>
 
 
+
+                                <?php endwhile; ?>
+                            </li>
+                            <?php else : ?>
+                                <?php // No rows found ?>
+                            <?php endif; // rental_detail repeater ?>
+                        </ul>
+                         <!--  image gallery removed -->
+                    </div> <!-- .rental -->
                     <?php endwhile; ?>
+
+
                 <?php else : ?>
                     <?php // No rows found ?>
-                <?php endif; ?>
-                <?php 	$rental_gallery_ids = get_sub_field( 'rental_gallery' );
-                $size = 'thumbnail';
-                ?>
+                <?php endif; // end repeater ?>
 
-                <?php if ( $rental_gallery_ids ) :  ?>
-                    <?php foreach ( $rental_gallery_ids as $rental_gallery_id ): ?>
-                        <?php echo wp_get_attachment_image( $rental_gallery_id, $size ); ?>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            <?php endwhile; ?>
-
-            </div> <!-- .rental -->
-
-        <?php else : ?>
-            <?php // No rows found ?>
-        <?php endif; ?>
+            <?php endif; ?>
+        <?php endwhile; // order_rentals ?>
+    <?php else: ?>
+        <?php // No layouts found ?>
+    <?php endif; // order_rentals flex content ?>
 
 </div>

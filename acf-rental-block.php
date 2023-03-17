@@ -66,7 +66,7 @@ add_action( 'acf/include_fields', 'acf_rental_block_register_include_fields' );
  * @param array $block_categories Existing block categories
  * @return array Block categories
  */
-function acf_rental_block_block_categories( $block_categories ) {
+function acf_rental_block_categories( $block_categories ) {
 
 	$block_categories = array_merge(
 		[
@@ -81,7 +81,7 @@ function acf_rental_block_block_categories( $block_categories ) {
 
 	return $block_categories;
 }
-add_filter( 'block_categories_all', 'acf_rental_block_block_categories' );
+add_filter( 'block_categories_all', 'acf_rental_block_categories' );
 
 /**
  * Register a custom TinyMCE toolbar for ACF.

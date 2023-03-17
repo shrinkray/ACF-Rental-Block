@@ -7,10 +7,49 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.qubely-accordion-panel-handler-label {
+  font-weight: 700;
+}
+
+.qubely-block-accordion .qubely-accordion-item {
+  margin-bottom: 0.5rem;
+}
+
 .wp-block-acf-rental {
-  background-color: #21759b;
-  color: #fff;
-  padding: 2px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 2rem;
+}
+
+.rental-card {
+  /*background-color: var(--wp--preset--tooling-base);*/
+  border: none;
+  font-size: 1rem;
+  margin: 0;
+  padding: 1rem;
+  max-width: 100%;
+}
+.rental-card > .rental-name {
+  background-color: transparent;
+  border-bottom: 2px solid black;
+  /*color: var(--wp--preset--tooling-contrast);*/
+  cursor: pointer;
+  display: block;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0;
+  outline: none;
+  padding: 0.75rem 0 0.25rem 0;
+  position: relative;
+  text-transform: uppercase;
+  width: 100%;
+}
+.rental-card > .rental-desc {
+  color: red;
+}
+.rental-card > .rental-deets {
+  list-style-type: circle;
 }
 
 /*# sourceMappingURL=rental.css.map*/
