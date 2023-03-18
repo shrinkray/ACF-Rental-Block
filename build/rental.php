@@ -23,48 +23,69 @@ $wrapper_attributes = get_block_wrapper_attributes(
 <div <?= $wrapper_attributes ?>>
 
     <?php  // Repeater
-    if ( have_rows( 'rental_item' ) ) : ?>
-        <?php while ( have_rows( 'rental_item' ) ) : the_row();
+    if ( have_rows( 'rental_item' ) ) :
+
+        while ( have_rows( 'rental_item' ) ) : the_row();
+
+        // vars
             $type       = get_sub_field( 'rental_type' );
             $name       = get_sub_field( 'rental_name' );
             $cost       = get_sub_field( 'rental_cost' );
             $dims       = get_sub_field( 'dimensions' );
-
-
+            $extras     = get_sub_field( 'rental_extras' );
             $is_vacancy = get_sub_field( 'is_vacancy' );
             $is_hidden  = get_sub_field( 'hide_rental' );
 
-            // set classnames
-            $is_vacancy ? $avail = 'is-avail' : $avail = 'not-avail';
-            $is_hidden ? $show = 'show' : $show = 'hide';
+        // set classnames
+            $is_vacancy ? $avail = 'open' : $avail = 'occupied';
+            $is_hidden ? ($show = 'show') : ($show = 'hide');
 
-            $extras = get_sub_field( 'rental_extras' );
             ?>
 
             <div class="rental-card">
+                <div class="vacancy">
+                    <span class="<?= esc_html( $avail ); ?>"><?= esc_html( $avail ); ?></span>
+                </div>
+                <div class="header <?= esc_html($type['value']); ?>">
+
+                    <h3 class="unit-desc"><?= esc_html($type['label']) ?></h3>
+                </div>
+                <div class="body">
+                    <h4 class="unit-name"><?= esc_html( $name ) ?></h4>
+                    <div class="unit-cost">
+                        <span class="dollar-sign">$</span><span class="value"><?= esc_html($cost); ?></span><span class="range">/mo</span>
+                    </div>
+                    <div class="unit-dims">
+                        <?= esc_html($dims); ?>
+                    </div>
+                    <div class="unit-extras">
+                        <?php
+                        /**
+                         * This code adds a comma after each item, except for the last one,
+                         */
+
+                        if ( $extras ):
+                            $count = 0; $total = count($extras);
+                            foreach ( $extras as $extra ):
+                                $count++;
+                                echo esc_html( $extra['label'] ); ?>
+
+                                <?= ( $count != $total ) ? ', ' :  ''  ?>
+
+                            <?php
+                            endforeach;
+                        endif; ?>
+                    </div>
+
+                </div>
+                <div class="footer">
+                    <label for="#button">
+                        <button class="btn" id="button">Interested?</button>
+                    </label>
+                </div>
 
 
 
-                <h3 class="rental-name"><?= esc_html( $name ) ?></h3>
-                <p class="rental-desc"><?= esc_html($type) ?></p>
-
-
-                <?php
-                /**
-                 * This code adds a comma after each item, except for the last one,
-                 * by comparing the current counter value with the total number of items in the $extras array.
-                 */
-
-                if ( $extras ):
-                    $count = 0; $total = count($extras);
-                    foreach ( $extras as $extra ):
-                        $count++;
-                        echo esc_html( $extra['label'] );
-                        if ( $count != $total ):
-                            echo ', ';
-                        endif;
-                    endforeach;
-                endif; ?>
 
             </div> <!-- .rental -->
         <?php endwhile; ?>
