@@ -19,7 +19,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 
 
-
 <div <?= $wrapper_attributes ?>>
 
     <?php  // Repeater
@@ -28,6 +27,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
         while ( have_rows( 'rental_item' ) ) : the_row();
 
         // vars
+            $show = '';
             $type       = get_sub_field( 'rental_type' );
             $name       = get_sub_field( 'rental_name' );
             $cost       = get_sub_field( 'rental_cost' );
@@ -38,17 +38,18 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
         // set classnames
             $is_vacancy ? $avail = 'open' : $avail = 'occupied';
-            $is_hidden ? ($show = 'show') : ($show = 'hide');
+            $is_hidden ? $show = 'hide' : $show = 'show';
 
             ?>
 
-            <div class="rental-card">
-                <div class="vacancy">
-                    <span class="<?= esc_html( $avail ); ?>"><?= esc_html( $avail ); ?></span>
-                </div>
+            <div class="rental-card <?= esc_html($show); ?>">
                 <div class="header <?= esc_html($type['value']); ?>">
 
                     <h3 class="unit-desc"><?= esc_html($type['label']) ?></h3>
+
+                    <div class="vacancy <?= esc_html( $avail ); ?>">
+                        <span class=""><?= esc_html( $avail ); ?></span>
+                    </div>
                 </div>
                 <div class="body">
                     <h4 class="unit-name"><?= esc_html( $name ) ?></h4>
