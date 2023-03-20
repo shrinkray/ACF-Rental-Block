@@ -1,12 +1,6 @@
 /*!*******************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./blocks/rental.scss ***!
   \*******************************************************************************************************************************************************************************************************************************************/
-/**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
- */
 .qubely-accordion-panel-handler-label {
   font-weight: 700;
 }
@@ -15,13 +9,26 @@
   margin-bottom: 0.5rem;
 }
 
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 .rental {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   column-gap: 1rem;
   row-gap: 3rem;
 }
 .rental > .rental-card {
+  background-color: #f1f1f1;
   display: flex;
   flex-direction: column;
   border: 1px solid azure;
@@ -31,7 +38,8 @@
   border-radius: 1rem;
 }
 .rental > .rental-card:hover {
-  background-color: #d2d2d2;
+  background-color: #e1e1e1;
+  box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.2);
 }
 .rental > .rental-card.hide {
   display: none;
@@ -71,9 +79,27 @@
 .rental > .rental-card > .header > .unit-desc {
   color: white;
   text-align: center;
+  line-height: 1.2;
+  font-size: 1.6rem;
+  padding: 0.8rem 0.5rem;
 }
 .rental > .rental-card > .header.private {
-  background: linear-gradient(60deg, #5f98b6, #2084c4);
+  background: linear-gradient(60deg, #5f98b6, #345d72);
+}
+.rental > .rental-card > .header.studio {
+  background: linear-gradient(60deg, #b49056, #6f5731);
+}
+.rental > .rental-card > .header.standing {
+  background: linear-gradient(60deg, #7a5fab, #493769);
+}
+.rental > .rental-card > .header.desk {
+  background: linear-gradient(60deg, #667c59, #3d4a35);
+}
+.rental > .rental-card > .header.partition {
+  background: linear-gradient(60deg, #9f5879, #5f3549);
+}
+.rental > .rental-card > .header.drawer {
+  background: linear-gradient(60deg, #818181, #4d4d4d);
 }
 .rental > .rental-card > .body {
   display: flex;
@@ -84,9 +110,25 @@
 }
 .rental > .rental-card > .body .unit-name {
   padding: 0 0 1rem 0;
+  letter-spacing: 0.005rem;
+  font-size: 1.3rem;
+  text-transform: capitalize;
 }
 .rental > .rental-card > .footer {
   padding: 0 0 1rem 0;
+}
+.rental > .rental-card > .footer .btn {
+  background: #c20430;
+  border-radius: 8px;
+  box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem 1.2rem;
+  transition: all 0.3s ease-in-out;
+}
+.rental > .rental-card > .footer .btn:hover {
+  background: #970225;
+  transition: background-color ease-in-out 0.3s;
 }
 
 .unit-cost .dollar-sign {
@@ -94,7 +136,7 @@
   font-size: 2rem;
 }
 .unit-cost .value {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 700;
 }
 .unit-cost .range {
@@ -103,6 +145,7 @@
 
 .unit-extras {
   font-size: small;
+  line-height: 1.2;
 }
 
 /*# sourceMappingURL=rental.css.map*/

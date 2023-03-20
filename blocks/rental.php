@@ -33,6 +33,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
             $cost       = get_sub_field( 'rental_cost' );
             $dims       = get_sub_field( 'dimensions' );
             $extras     = get_sub_field( 'rental_extras' );
+            $btn_link   = get_sub_field( 'link' );
+            $btn_label  = get_sub_field( 'label' );
             $is_vacancy = get_sub_field( 'is_vacancy' );
             $is_hidden  = get_sub_field( 'hide_rental' );
 
@@ -80,9 +82,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
                 </div>
                 <div class="footer">
-                    <label for="#button">
-                        <button class="btn" id="button">Interested?</button>
-                    </label>
+                    <a class="btn" type="link" href="<?= esc_html($btn_link); ?>" target="_self"><?= esc_html( $btn_label ); ?></a>
                 </div>
 
 

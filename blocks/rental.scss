@@ -1,9 +1,5 @@
-/**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
- */
+@use 'sass:map';
+@use "sass:color";
 
 
 .qubely-accordion-panel-handler-label {
@@ -12,13 +8,26 @@
 .qubely-block-accordion .qubely-accordion-item {
 	margin-bottom: 0.5rem;
 }
+.visually-hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
 .rental {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 	column-gap: 1rem;
 	row-gap: 3rem;
 
 	&> .rental-card {
+		background-color: #f1f1f1;
 		display: flex;
 		flex-direction: column;
 		border: 1px solid azure;
@@ -27,8 +36,10 @@
 		transition: all ease-in-out 0.3s;
 		border-radius: 1rem;
 
+
 		&:hover {
-			background-color: #d2d2d2;
+			background-color: #e1e1e1;
+			box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, .2);
 		}
 		&.hide {
 			display: none;
@@ -62,6 +73,20 @@
 				}
 			}
 		}
+		$private: #5f98b6;
+		$studio: #b49056;
+		$standing: #7a5fab;
+		$desk: #667c59;
+		$partition: #9f5879;
+		$drawer: #818181;
+
+		$private-dark: scale-color($private, $lightness: -40%);
+		$studio-dark: scale-color($studio, $lightness: -40%);
+		$standing-dark: scale-color($standing, $lightness: -40%);
+		$desk-dark: scale-color($desk, $lightness: -40%);
+		$partition-dark: scale-color($partition, $lightness: -40%);
+		$drawer-dark: scale-color($drawer, $lightness: -40%);
+
 
 		&> .header {
 			width: 100%;
@@ -69,13 +94,30 @@
 			display: flex;
 			flex-direction: column;
 
-
 			& > .unit-desc {
 				color: white;
 				text-align: center;
+				line-height: 1.2;
+				font-size: 1.6rem;
+				padding: .8rem .5rem;
 			}
 			&.private {
-				background: linear-gradient(60deg, #5f98b6, #2084c4);
+				background: linear-gradient(60deg, $private, $private-dark);
+			}
+			&.studio {
+				background: linear-gradient(60deg, $studio, $studio-dark);
+			}
+			&.standing {
+				background: linear-gradient(60deg, $standing, $standing-dark);
+			}
+			&.desk {
+				background: linear-gradient(60deg, $desk, $desk-dark);
+			}
+			&.partition {
+				background: linear-gradient(60deg, $partition, $partition-dark);
+			}
+			&.drawer {
+				background: linear-gradient(60deg, $drawer, $drawer-dark);
 			}
 		}
 
@@ -87,11 +129,27 @@
 			padding: 0.9rem;
 			.unit-name {
 				padding: 0 0 1rem 0;
+				letter-spacing: 0.005rem;
+				font-size: 1.3rem;
+				text-transform: capitalize;
 			}
 		}
 
 		&> .footer {
 			padding: 0 0 1rem 0;
+			.btn {
+				background: #c20430;
+				border-radius: 8px;
+				box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, .2);
+				color: white;
+				font-size: 1rem;
+				padding: 0.5rem 1.2rem;
+				transition: all .3s ease-in-out;
+				&:hover {
+					background: #970225;
+					transition: background-color ease-in-out 0.3s;
+				}
+			}
 		}
 
 	}
@@ -103,7 +161,7 @@
 		font-size: 2rem;
 	}
 	.value {
-		font-size: 4rem;
+		font-size: 3rem;
 		font-weight: 700;
 
 	}
@@ -114,4 +172,5 @@
 }
 .unit-extras {
 	font-size: small;
+	line-height: 1.2;
  }
