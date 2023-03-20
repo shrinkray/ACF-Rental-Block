@@ -1,55 +1,25 @@
-=== ACF ===
-Contributors:      The WordPress Contributors
-Tags:              block
-Tested up to:      6.0
-Stable tag:        0.1.0
-License:           GPL-2.0-or-later
-License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+
+# ACF-Rental-Block
+
+A WP Block Plugin to build content for various coworking options in a makerspace
 
 
 
-== Description ==
+### == Description ==
 
-This is the long description. No limit, and you can use Markdown (as well as in the following sections).
+This is a block plugin to work in combination with other blocks. The purpose is to present info about each type of rental, such as private office or open studio or desk as an example. Configuration and options within the block are handled with ACF fields. Building this block was to learn how to build and customize Block plugins. 
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+The process and useful links will be published in my [blog](https://www.shrinkraylabs.com) soon. This work was based on a [post](https://wpengine.com/builders/accordion-block-acf-fields/) published by WP Engine where they are building an Accordion block and uses boilerplate [create-block templating](https://www.npmjs.com/package/@colorful-tones/acf-create-block-template) from Damon Cook. 
 
-== Installation ==
+
+## == Installation ==
 
 This section describes how to install the plugin and get it working.
 
 e.g.
 
-1. Upload the plugin files to the `/wp-content/plugins/rental` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
-
-
-== Frequently Asked Questions ==
-
-= A question that someone might have =
-
-An answer to that question.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
-
-== Screenshots ==
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
-
-== Changelog ==
-
-= 0.1.0 =
-* Release
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above. This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation." Arbitrary sections will be shown below the built-in sections outlined above.
+1. Upload the plugin files to the `/wp-content/plugins/` directory, then activate.
+2. On your page, search the blocks for 'rental' 
+3. Editing takes place in the page like old-school ACF. 
+4. Add rental spaces and reorder in the edit view if you like. 
+5. Save and View changes. 
