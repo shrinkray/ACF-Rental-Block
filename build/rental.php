@@ -21,19 +21,22 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 <div <?= $wrapper_attributes ?>>
 
-    <?php  // Repeater
+    <?php
+    $btn_link   = get_field( 'link' );
+    // Repeater
     if ( have_rows( 'rental_item' ) ) :
 
         while ( have_rows( 'rental_item' ) ) : the_row();
 
         // vars
-            $show = '';
+            $show       = '';
             $type       = get_sub_field( 'rental_type' );
             $name       = get_sub_field( 'rental_name' );
             $cost       = get_sub_field( 'rental_cost' );
+            $day       = get_sub_field( 'rental_day' );
+            $week       = get_sub_field( 'rental_week' );
             $dims       = get_sub_field( 'dimensions' );
             $extras     = get_sub_field( 'rental_extras' );
-            $btn_link   = get_sub_field( 'link' );
             $btn_label  = get_sub_field( 'label' );
             $is_vacancy = get_sub_field( 'is_vacancy' );
             $is_hidden  = get_sub_field( 'hide_rental' );
@@ -55,11 +58,21 @@ $wrapper_attributes = get_block_wrapper_attributes(
                 </div>
                 <div class="body">
                     <h4 class="unit-name"><?= esc_html( $name ) ?></h4>
+
+                    <?php if ( $type['value'] !== 'flex' ) : ?>
+
                     <div class="unit-cost">
                         <span class="dollar-sign">$</span><span class="value"><?= esc_html($cost); ?></span><span class="range">/mo</span>
                     </div>
+                    <?php else : ?>
+
+                    <div class="unit-cost flex-col ">
+                        <span class="check-prices">Check for prices</span>
+                    </div>
+
+                    <?php endif; ?>
                     <div class="unit-dims">
-                        <?= esc_html($dims); ?>
+                        <?= esc_html( $dims ); ?>
                     </div>
                     <div class="unit-extras">
                         <?php
@@ -71,9 +84,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
                             $count = 0; $total = count($extras);
                             foreach ( $extras as $extra ):
                                 $count++;
-                                echo esc_html( $extra['label'] ); ?>
-
-                                <?= ( $count != $total ) ? ', ' :  ''  ?>
+                                echo esc_html( $extra['label'] ); ?><?= ( $count != $total ) ? ', ' :  ''  ?>
 
                             <?php
                             endforeach;
