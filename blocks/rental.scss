@@ -19,6 +19,11 @@
 	white-space: nowrap;
 	width: 1px;
 }
+.flex-col {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
 .rental {
 	display: grid;
@@ -79,6 +84,7 @@
 		$desk: #667c59;
 		$partition: #9f5879;
 		$drawer: #818181;
+		$flex: #913131;
 
 		$private-dark: scale-color($private, $lightness: -40%);
 		$studio-dark: scale-color($studio, $lightness: -40%);
@@ -86,6 +92,7 @@
 		$desk-dark: scale-color($desk, $lightness: -40%);
 		$partition-dark: scale-color($partition, $lightness: -40%);
 		$drawer-dark: scale-color($drawer, $lightness: -40%);
+		$flex-dark: scale-color($flex, $lightness: -40%);
 
 
 		&> .header {
@@ -118,6 +125,9 @@
 			}
 			&.drawer {
 				background: linear-gradient(60deg, $drawer, $drawer-dark);
+			}
+			&.flex {
+				background: linear-gradient(60deg, $flex, $flex-dark);
 			}
 		}
 
@@ -165,6 +175,16 @@
 		font-weight: 700;
 
 	}
+	.day-cost,
+	.week-cost {
+		font-size: 2rem;
+		font-weight: 700;
+	}
+	.check-prices {
+		font-weight: 500;
+		text-align: center;
+		line-height: 1.2;
+	}
 	.range {
 		color: #7d7d7d;
 	}
@@ -173,4 +193,5 @@
 .unit-extras {
 	font-size: small;
 	line-height: 1.2;
+	margin-top: .5rem;
  }

@@ -21,6 +21,12 @@
   width: 1px;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .rental {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -101,6 +107,9 @@
 .rental > .rental-card > .header.drawer {
   background: linear-gradient(60deg, #818181, #4d4d4d);
 }
+.rental > .rental-card > .header.flex {
+  background: linear-gradient(60deg, #913131, #571d1d);
+}
 .rental > .rental-card > .body {
   display: flex;
   flex-direction: column;
@@ -139,6 +148,16 @@
   font-size: 3rem;
   font-weight: 700;
 }
+.unit-cost .day-cost,
+.unit-cost .week-cost {
+  font-size: 2rem;
+  font-weight: 700;
+}
+.unit-cost .check-prices {
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
+}
 .unit-cost .range {
   color: #7d7d7d;
 }
@@ -146,6 +165,7 @@
 .unit-extras {
   font-size: small;
   line-height: 1.2;
+  margin-top: 0.5rem;
 }
 
 /*# sourceMappingURL=rental.css.map*/
