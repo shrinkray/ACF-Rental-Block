@@ -65,6 +65,10 @@
   padding: 0 1rem;
   background: linear-gradient(to bottom, white 1px, rgba(0, 0, 0, 0.6) 3px, #5d5d5d);
 }
+.rental > .rental-card .vacancy.available {
+  padding: 0 1rem;
+  background: linear-gradient(to bottom, white 1px, rgba(0, 0, 0, 0.6) 3px, #5d5d5d);
+}
 .rental > .rental-card .vacancy.open {
   padding: 0 1rem;
   background: linear-gradient(to bottom, #ccffcc 1px, rgba(0, 0, 0, 0.6) 3px, #0e7b17);
@@ -87,7 +91,8 @@
   text-align: center;
   line-height: 1.2;
   font-size: 1.6rem;
-  padding: 0.8rem 0.5rem;
+  padding: 1rem 0.5rem;
+  margin-bottom: 0;
 }
 .rental > .rental-card > .header.private {
   background: linear-gradient(60deg, #5f98b6, #345d72);
