@@ -65,6 +65,10 @@
   padding: 0 1rem;
   background: linear-gradient(to bottom, white 1px, rgba(0, 0, 0, 0.6) 3px, #5d5d5d);
 }
+.rental > .rental-card .vacancy.available {
+  padding: 0 1rem;
+  background: linear-gradient(to bottom, white 1px, rgba(0, 0, 0, 0.6) 3px, #5d5d5d);
+}
 .rental > .rental-card .vacancy.open {
   padding: 0 1rem;
   background: linear-gradient(to bottom, #ccffcc 1px, rgba(0, 0, 0, 0.6) 3px, #0e7b17);
@@ -87,7 +91,8 @@
   text-align: center;
   line-height: 1.2;
   font-size: 1.6rem;
-  padding: 0.8rem 0.5rem;
+  padding: 1rem 0.5rem;
+  margin-bottom: 0;
 }
 .rental > .rental-card > .header.private {
   background: linear-gradient(60deg, #5f98b6, #345d72);
@@ -166,6 +171,67 @@
   font-size: small;
   line-height: 1.2;
   margin-top: 0.5rem;
+}
+
+.promo-badge {
+  width: 4rem;
+  height: auto;
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  background: transparent;
+}
+.promo-badge svg {
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.3));
+}
+
+.promo-ribbon {
+  width: 129px;
+  height: 129px;
+  overflow: hidden;
+  position: absolute;
+}
+.promo-ribbon::before, .promo-ribbon::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  display: block;
+  border: 5px solid #860808;
+}
+.promo-ribbon span {
+  position: absolute;
+  display: block;
+  width: 238px;
+  padding: 8px 0;
+  background-image: linear-gradient(70deg, #c20430 10%, #ff7171 25%, #92112f 50%, red);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font: 700 14px/1 "Open Sans", sans-serif;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.ribbon-top-right {
+  top: 0;
+  right: 0;
+}
+.ribbon-top-right::before, .ribbon-top-right::after {
+  border-top-color: transparent;
+  border-right-color: transparent;
+}
+.ribbon-top-right::before {
+  top: 0;
+  left: 0;
+}
+.ribbon-top-right::after {
+  bottom: 0;
+  right: 0;
+}
+.ribbon-top-right span {
+  left: -38px;
+  top: 30px;
+  transform: rotate(45deg);
 }
 
 /*# sourceMappingURL=rental.css.map*/
