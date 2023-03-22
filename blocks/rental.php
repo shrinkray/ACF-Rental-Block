@@ -80,8 +80,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
   <g transform="matrix(.78816 0 0 .85107 -64.116 -177.839)">
       <rect width="66.971" height="63.639" x="81.349" y="208.959" style="fill:none;"/>
       <path d="m108.153 198.625 7.691 8.021 10.806-2.589 2.134 10.905 10.491 3.664-4.101 10.328 6.845 8.755-9.034 6.471 1.025 11.065-11.098.56-5.12 9.863-9.639-5.529-9.64 5.529-5.119-9.863-11.099-.56 1.025-11.065-9.033-6.471 6.844-8.755-4.101-10.328 10.491-3.664 2.134-10.905 10.807 2.589 7.691-8.021Z" style="fill:rgb(189,0,0);" transform="matrix(.9647 0 0 .8934 10.63 33.363)"/>
-      <text x="400.341" y="190.837" style="font-family:'RobotoSlab-Black', 'Roboto Slab';font-size:12px;fill:white;" transform="matrix(1.26878 0 0 1.17499 -411.579 14.71)">Great</text>
-      <text x="401.566" y="202.922" style="font-family:'RobotoSlab-Black', 'Roboto Slab';font-size:12px;fill:white;" transform="matrix(1.26878 0 0 1.17499 -411.579 14.71)">Deal!</text>
+      <text x="396" y="190" style="font-family:'RobotoSlab-Black', 'Roboto Slab';font-size:10px;fill:white;" transform="matrix(1.26878 0 0 1.17499 -411.579 14.71)">GREAT</text>
+      <text x="401" y="202" style="font-family:'RobotoSlab-Black', 'Roboto Slab';font-size:10px;fill:white;" transform="matrix(1.26878 0 0 1.17499 -411.579 14.71)">DEAL!</text>
   </g>
 </svg>
                 </div>
