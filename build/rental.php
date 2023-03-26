@@ -11,6 +11,8 @@
  */
 
 
+
+
 $wrapper_attributes = get_block_wrapper_attributes(
     [
         'class' => 'rental'
@@ -22,8 +24,11 @@ $wrapper_attributes = get_block_wrapper_attributes(
 <div <?= $wrapper_attributes ?>>
 
     <?php
-    $btn_link   = get_field( 'link' );
+
+        $form_page   = get_field( 'link' );
+
     // Repeater
+
     if ( have_rows( 'rental_item' ) ) :
 
         while ( have_rows( 'rental_item' ) ) : the_row();
@@ -65,6 +70,15 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
             $is_hidden ? $show = 'hide' : $show = 'show';
 
+
+            /**
+             * link builder, build button link based on type
+             * this produces the page link along with query string to prefill a selection.
+             */
+
+            $btn_link = $type ? $form_page . '?type=' . $type['value'] : $form_page;
+
+
             ?>
 
             <div class="rental-card <?= esc_html($show); ?>">
@@ -75,13 +89,15 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
                 if ( $push === '1' ) : // Great Deal!
             ?>
+                    <style>
+                        /*@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap');*/
+                    </style>
                 <div class="promo-badge">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" viewBox="0 0 53 55">
   <g transform="matrix(.78816 0 0 .85107 -64.116 -177.839)">
-      <rect width="66.971" height="63.639" x="81.349" y="208.959" style="fill:none;"/>
-      <path d="m108.153 198.625 7.691 8.021 10.806-2.589 2.134 10.905 10.491 3.664-4.101 10.328 6.845 8.755-9.034 6.471 1.025 11.065-11.098.56-5.12 9.863-9.639-5.529-9.64 5.529-5.119-9.863-11.099-.56 1.025-11.065-9.033-6.471 6.844-8.755-4.101-10.328 10.491-3.664 2.134-10.905 10.807 2.589 7.691-8.021Z" style="fill:rgb(189,0,0);" transform="matrix(.9647 0 0 .8934 10.63 33.363)"/>
-      <text x="396" y="190" style="font-family:'RobotoSlab-Black', 'Roboto Slab';font-size:10px;fill:white;" transform="matrix(1.26878 0 0 1.17499 -411.579 14.71)">GREAT</text>
-      <text x="401" y="202" style="font-family:'RobotoSlab-Black', 'Roboto Slab';font-size:10px;fill:white;" transform="matrix(1.26878 0 0 1.17499 -411.579 14.71)">DEAL!</text>
+      <path stroke="white" stroke-width="2" d="m108.153 198.625 7.691 8.021 10.806-2.589 2.134 10.905 10.491 3.664-4.101 10.328 6.845 8.755-9.034 6.471 1.025 11.065-11.098.56-5.12 9.863-9.639-5.529-9.64 5.529-5.119-9.863-11.099-.56 1.025-11.065-9.033-6.471 6.844-8.755-4.101-10.328 10.491-3.664 2.134-10.905 10.807 2.589 7.691-8.021Z" style="fill:rgb(189,0,0);" transform="matrix(.9647 0 0 .8934 10.63 33.363)"/>
+      <text x="396" y="194" style="font-family: 'Open Sans', sans-serif;font-size:11px;fill:white; font-weight:800" transform="matrix(1.26878 0 0 1.17499 -411.579 14.71)">GREAT</text>
+      <text x="399" y="204" style="font-family: 'Open Sans', sans-serif;font-size:11px;fill:white; font-weight:800" transform="matrix(1.26878 0 0 1.17499 -411.579 14.71)">DEAL!</text>
   </g>
 </svg>
                 </div>
@@ -89,8 +105,11 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
                 elseif ( $push === '2') : // Special
             ?>
-                <div class="promo-ribbon ribbon-top-right">
-                    <span>SPECIAL</span>
+                <style>
+                    /*@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap');*/
+                </style>
+                <div class="promo-ribbon ribbon-bottom-left">
+                    <span>&nbsp;⭐ SPECIAL ⭐</span>
                 </div>
             <?php
 
@@ -156,10 +175,14 @@ $wrapper_attributes = get_block_wrapper_attributes(
                 </div>
                 <div class="footer">
                 <?php
+
+                // 1 means rental is open, 3 means coming soon
+
                 if ( $is_vacancy['value'] === '1'  ||  $is_vacancy['value'] === '3' ) :
+
                     ?>
 
-                    <a class="btn" type="link" href="<?= esc_html($btn_link); ?>" target="_self"><?= esc_html( $btn_label ); ?></a>
+                    <a class="card-btn" type="link" href="<?= esc_html( $btn_link ); ?>" target="_self"><?= esc_html( $btn_label ); ?></a>
 
                 <?php else : // space is occupied ?>
 
@@ -170,7 +193,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 
 
-            </div> <!-- .rental -->
+            </div>
         <?php
         endwhile
         ?>

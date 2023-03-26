@@ -131,16 +131,17 @@
 .rental > .rental-card > .footer {
   padding: 0 0 1rem 0;
 }
-.rental > .rental-card > .footer .btn {
+.rental > .rental-card > .footer .card-btn {
   background: #c20430;
   border-radius: 8px;
-  box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.4);
   color: white;
   font-size: 1rem;
   padding: 0.5rem 1.2rem;
   transition: all 0.3s ease-in-out;
+  position: relative;
 }
-.rental > .rental-card > .footer .btn:hover {
+.rental > .rental-card > .footer .card-btn:hover {
   background: #970225;
   transition: background-color ease-in-out 0.3s;
 }
@@ -182,7 +183,7 @@
   background: transparent;
 }
 .promo-badge svg {
-  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4));
 }
 
 .promo-ribbon {
@@ -190,6 +191,7 @@
   height: 129px;
   overflow: hidden;
   position: absolute;
+  /* bottom left*/
 }
 .promo-ribbon::before, .promo-ribbon::after {
   position: absolute;
@@ -203,34 +205,34 @@
   display: block;
   width: 238px;
   padding: 8px 0;
-  background-image: linear-gradient(70deg, #c20430 10%, #ff7171 25%, #92112f 50%, red);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(70deg, #04334b 10%, #5a9cea 25%, #092456 35%, #5a9cea 45%, #0b376b 65%, #5a9cea 75%);
+  border: 2px solid white;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
   color: #fff;
-  font: 700 14px/1 "Open Sans", sans-serif;
+  font: 800 14px/1 "Open Sans", sans-serif;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
   text-align: center;
 }
-
-.ribbon-top-right {
-  top: 0;
-  right: 0;
+.promo-ribbon.ribbon-bottom-left {
+  bottom: 0;
+  left: 0;
 }
-.ribbon-top-right::before, .ribbon-top-right::after {
-  border-top-color: transparent;
-  border-right-color: transparent;
+.promo-ribbon.ribbon-bottom-left::before, .promo-ribbon.ribbon-bottom-left::after {
+  border-bottom-color: transparent;
+  border-left-color: transparent;
 }
-.ribbon-top-right::before {
+.promo-ribbon.ribbon-bottom-left::before {
   top: 0;
   left: 0;
 }
-.ribbon-top-right::after {
+.promo-ribbon.ribbon-bottom-left::after {
   bottom: 0;
   right: 0;
 }
-.ribbon-top-right span {
-  left: -38px;
-  top: 30px;
+.promo-ribbon.ribbon-bottom-left span {
+  right: -25px;
+  bottom: 30px;
   transform: rotate(45deg);
 }
 
