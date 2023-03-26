@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       ACF Rental Builder
- * Description:       A block with ACF fields that lists coworking spaces in a makerspace.
+ * Description:       Build a row of cards featuring a variety of rental spaces.
  * Requires at least: 6.0
  * Requires PHP:      7.0
  * Version:           0.1.0
