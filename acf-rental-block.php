@@ -27,10 +27,11 @@
  *
  * @return void
  */
-function acf_rental_block_register() {
+function register_acf_blocks(): void
+{
     register_block_type( dirname(__FILE__) . '/build/block.json' );
 }
-add_action( 'init', 'acf_rental_block_register', 5 );
+add_action( 'init', 'register_acf_blocks', 5 );
 
 
 
