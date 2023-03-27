@@ -7,6 +7,7 @@
   "category": "acf-blocks",
   "icon": "smiley",
   "description": "A rental block.",
+  "textdomain": "rental",
   "supports": {
     "color": {
       "text": true,
@@ -20,7 +21,9 @@
     "cost"
   ],
   "script": "file:./rental.js",
-  "style": "file:./rental.css",
+  "style": [
+    "file:./rental.css"
+  ],
   "acf": {
     "mode": "auto",
     "renderTemplate": "rental.php"
