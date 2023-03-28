@@ -107,7 +107,7 @@
 	column-gap: 1rem;
 	row-gap: 3rem;
 
-	> .rental-card {
+	> .card {
 		background-color: var(--bfl-glare);
 		display: flex;
 		flex-direction: column;
@@ -178,6 +178,11 @@
 		$drawer-dark: color.scale($drawer, $lightness: -40%);
 		$flex-dark: color.scale($flex, $lightness: -40%);
 
+		&:focus-within {
+			box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+			transition: 0.5s all;
+		}
+
 		> .header {
 			width: 100%;
 			border-radius: 1rem 1rem 0 0;
@@ -240,7 +245,7 @@
 		> .footer {
 			padding: 0 0 1rem 0;
 
-			.card-btn {
+			.cta-btn {
 				background: var(--bfl-primary);
 				border-radius: 8px;
 				box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.4);
@@ -253,6 +258,16 @@
 				&:hover {
 					background: var(--bfl-primary-hover);
 					transition: background-color ease-in-out 0.3s;
+				}
+
+				&:focus {
+					text-decoration: underline;
+					outline: #0088cc;
+				}
+
+				&:focus-within {
+					box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.7);
+					transition: 0.5s all;
 				}
 			}
 		}
@@ -290,7 +305,7 @@
 }
 
 .unit-extras {
-	font-size: small;
+	font-size: .9rem;
 	line-height: 1.2;
 	margin-top: 0.5rem;
 }
