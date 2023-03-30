@@ -21,7 +21,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 
 
-<div <?= $wrapper_attributes ?>>
+<section <?= $wrapper_attributes ?>>
 
     <?php
 
@@ -34,9 +34,8 @@ $wrapper_attributes = get_block_wrapper_attributes(
         while ( have_rows( 'rental_item' ) ) : the_row();
 
             // vars
-            $show       = '';
-            $avail      = 'test';
-            $vacancy    = 'test';
+            $avail      = ''; // set to satisfy phpStorm, was undefined
+            $vacancy    = ''; // ditto
             $type       = get_sub_field( 'rental_type' );
             $name       = get_sub_field( 'rental_name' );
             $cost       = get_sub_field( 'rental_cost' );
@@ -81,17 +80,18 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
             ?>
 
-            <div class="rental-card <?= esc_html($show); ?>">
+            <article class="card <?= esc_attr( $show ); ?>">
 
             <?php
+
+            /**
+             * Promos are badges and ribbons added for some extra eye-catching 'bling' to a card
+             */
 
             if ( $is_promo ) :
 
                 if ( $push === '1' ) : // Great Deal!
             ?>
-                    <style>
-                        /*@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap');*/
-                    </style>
                 <div class="promo-badge">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" viewBox="0 0 53 55">
   <g transform="matrix(.78816 0 0 .85107 -64.116 -177.839)">
@@ -105,9 +105,6 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
                 elseif ( $push === '2') : // Special
             ?>
-                <style>
-                    /*@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap');*/
-                </style>
                 <div class="promo-ribbon ribbon-bottom-left">
                     <span>&nbsp;⭐ SPECIAL ⭐</span>
                 </div>
@@ -117,11 +114,11 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
             endif;
             ?>
-                <div class="header <?= esc_html($type['value']); ?>">
+                <div class="header <?= esc_attr( $type['value'] ); ?>">
 
-                    <h3 class="unit-desc"><?= esc_html($type['label']) ?></h3>
+                    <h3 class="unit-desc"><?= esc_html( $type['label'] ) ?></h3>
 
-                    <div class="vacancy <?= esc_html( $avail ); ?>">
+                    <div class="vacancy <?= esc_attr( $avail ); ?>">
                         <span><?= esc_html( $vacancy ); ?></span>
                     </div>
                 </div>
@@ -129,7 +126,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
                     <?php
                     if ( $name ) :
                     ?>
-                    <h4 class="unit-name"><?= esc_html( $name ) ?></h4>
+                    <h4 class="unit-name"><?= esc_attr( $name ) ?></h4>
 
                     <?php else : ?>
                     <div class="unit-name"></div>
@@ -142,20 +139,20 @@ $wrapper_attributes = get_block_wrapper_attributes(
                     if ( $type['value'] !== 'flex' ) : ?>
 
                     <div class="unit-cost">
-                        <span class="dollar-sign">$</span><span class="value"><?= esc_html($cost); ?></span><span
+                        <span class="dollar-sign">$</span><span class="value"><?= esc_attr( $cost ); ?></span><span
                                 class="range">/mo</span>
                     </div>
                     <?php else : ?>
 
                     <div class="unit-cost flex-col ">
-                        <span class="check-prices"><?= esc_html( $cost_note ); ?></span>
+                        <span class="check-prices"><?= esc_attr( $cost_note ); ?></span>
                     </div>
 
                     <?php endif; ?>
                     <div class="unit-dims">
                         <?= esc_html( $dims ); ?>
                     </div>
-                    <div class="unit-extras">
+                    <small class="unit-extras">
                         <?php
                         /**
                          * This code adds a comma after each item, except for the last one,
@@ -170,7 +167,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
                             <?php
                             endforeach;
                         endif; ?>
-                    </div>
+                    </small>
 
                 </div>
                 <div class="footer">
@@ -182,7 +179,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
                     ?>
 
-                    <a class="card-btn" type="link" href="<?= esc_html( $btn_link ); ?>" target="_self"><?= esc_html( $btn_label ); ?></a>
+                    <a class="cta-btn" type="link" href="<?= esc_html( $btn_link ); ?>" target="_self"><?= esc_html( $btn_label ); ?></a>
 
                 <?php else : // space is occupied ?>
 
@@ -193,7 +190,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 
 
-            </div>
+            </article>
         <?php
         endwhile
         ?>
@@ -203,4 +200,4 @@ $wrapper_attributes = get_block_wrapper_attributes(
         <?php // No rows found ?>
     <?php endif; // end repeater ?>
 
-</div>
+</section>

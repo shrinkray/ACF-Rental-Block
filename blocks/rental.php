@@ -21,7 +21,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 ?>
 
 
-<div <?= $wrapper_attributes ?>>
+<section <?= $wrapper_attributes ?>>
 
     <?php
 
@@ -80,7 +80,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
             ?>
 
-            <div class="rental-card <?= esc_attr( $show ); ?>">
+            <article class="card <?= esc_attr( $show ); ?>">
 
             <?php
 
@@ -152,7 +152,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
                     <div class="unit-dims">
                         <?= esc_html( $dims ); ?>
                     </div>
-                    <div class="unit-extras">
+                    <small class="unit-extras">
                         <?php
                         /**
                          * This code adds a comma after each item, except for the last one,
@@ -167,7 +167,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
                             <?php
                             endforeach;
                         endif; ?>
-                    </div>
+                    </small>
 
                 </div>
                 <div class="footer">
@@ -179,7 +179,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
                     ?>
 
-                    <a class="card-btn" type="link" href="<?= esc_html( $btn_link ); ?>" target="_self"><?= esc_html( $btn_label ); ?></a>
+                    <a class="cta-btn" type="link" href="<?= esc_html( $btn_link ); ?>" target="_self"><?= esc_html( $btn_label ); ?></a>
 
                 <?php else : // space is occupied ?>
 
@@ -190,7 +190,7 @@ $wrapper_attributes = get_block_wrapper_attributes(
 
 
 
-            </div>
+            </article>
         <?php
         endwhile
         ?>
@@ -200,4 +200,4 @@ $wrapper_attributes = get_block_wrapper_attributes(
         <?php // No rows found ?>
     <?php endif; // end repeater ?>
 
-</div>
+</section>
