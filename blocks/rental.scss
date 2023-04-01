@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "sass:color";
+//@use "variables";
 
 // find custom property CSS colors in child theme styles.css file
 .visually-hidden {
@@ -191,7 +192,7 @@
 				background: linear-gradient(60deg, $desk, $desk-dark);
 			}
 
-			&.partition {
+			&.storage {
 				background: linear-gradient(60deg, $partition, $partition-dark);
 			}
 
