@@ -8,6 +8,7 @@
 		"extends @wordpress/browserslist-config"
 	],
 	"scripts": {
+		"dev": "wp-scripts build --webpack-src-dir=blocks --webpack-copy-php",
 		"build": "wp-scripts build --webpack-src-dir=blocks --webpack-copy-php",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
