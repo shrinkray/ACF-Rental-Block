@@ -2,47 +2,6 @@
 @use "sass:color";
 //@use "variables";
 
-:root {
-	--bfl-primary: #c20430;
-	--bfl-primary-hover: #970225;
-	--bfl-text: #191919;
-	--bfl-accent: #49cbff;
-	--bfl-basic-white: #fff;
-	--bfl-blue-tint: #5f98b6;
-	--bfl-maize-tint: #b49056;
-	--bfl-lavendar-tint: #7a5fab;
-	--bfl-sage-tint: #7a5fab;
-	--bfl-pink-tint: #9f5879;
-	--bfl-sidewalk-tint: #818181;
-	--bfl-rose-tint: #913131;
-	--bfl-glare: #f1f1f1ff;
-	--bfl-plaster: #d3d3d3ff;
-	--bfl-dried-leaves: #674a2a;
-	--bfl-concrete-tint: #353535;
-	--bfl-ivory-tint: #fffff0ff;
-	--bfl-primary-highlite: #ffebebff;
-	--bfl-hazy-tint: #ffebebff;
-	--bfl-grass-tint: #a6eca6;
-}
-
-.visually-hidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	white-space: nowrap;
-	width: 1px;
-}
-
-.flex-col {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
 .promo-ribbon {
 	width: 129px;
 	height: 129px;
@@ -273,56 +232,57 @@
 		}
 	}
 }
-
-.unit-cost {
-
-	.dollar-sign {
-		font-weight: 500;
-		font-size: 2rem;
-	}
-
-	.value {
-		font-size: 3rem;
-		font-weight: 700;
-
-	}
-
-	.day-cost,
-	.week-cost {
-		font-size: 2rem;
-		font-weight: 700;
-	}
-
-	.check-prices {
-		font-weight: 500;
-		text-align: center;
-		line-height: 1.2;
-	}
-
-	.range {
-		color: var(--bfl-concrete-tint);
-	}
-}
-
-.unit-dims {
-	color: var(--bfl-concrete-tint);
-}
-
-.unit-extras {
-	font-size: .9rem;
-	line-height: 1.2;
-	margin-top: 0.5rem;
-}
-
-.promo-badge {
-	width: 4rem;
-	height: auto;
-	position: absolute;
-	top: -1rem;
-	left: -1rem;
-	background: transparent;
-
-	svg {
-		filter: drop-shadow(0 0 4px rgb(0 0 0 / 0.4));
-	}
-}
+//
+// comment out, moved to theme CSS
+//.unit-cost {
+//
+//	.dollar-sign {
+//		font-weight: 500;
+//		font-size: 2rem;
+//	}
+//
+//	.value {
+//		font-size: 3rem;
+//		font-weight: 700;
+//
+//	}
+//
+//	.day-cost,
+//	.week-cost {
+//		font-size: 2rem;
+//		font-weight: 700;
+//	}
+//
+//	.check-prices {
+//		font-weight: 500;
+//		text-align: center;
+//		line-height: 1.2;
+//	}
+//
+//	.range {
+//		color: var(--bfl-concrete-tint);
+//	}
+//}
+//
+//.unit-dims {
+//	color: var(--bfl-concrete-tint);
+//}
+//
+//.unit-extras {
+//	font-size: .9rem;
+//	line-height: 1.2;
+//	margin-top: 0.5rem;
+//}
+//
+//.promo-badge {
+//	width: 4rem;
+//	height: auto;
+//	position: absolute;
+//	top: -1rem;
+//	left: -1rem;
+//	background: transparent;
+//
+//	svg {
+//		filter: drop-shadow(0 0 4px rgb(0 0 0 / 0.4));
+//	}
+//}
